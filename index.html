@@ -12,14 +12,56 @@
     <script type="text/javascript">
       var chart = c3.generate({
         data: {
-          columns: [
-            ['data1', 300, 350, 300, 0, 0, 0],
-            ['data2', 130, 100, 140, 200, 150, 50]
-          ],
-          types: {
-            data1: 'area',
-            data2: 'area-spline'
-          }
+            json: [
+                {"seconds_since_epoch":1583651326000,"tested":515,"positive":88,"deaths":1},
+                {"seconds_since_epoch":1583713441000,"tested":515,"positive":114,"deaths":1},
+                {"seconds_since_epoch":1583823426000,"tested":515,"positive":133,"deaths":1},
+                {"seconds_since_epoch":1583896735000,"tested":515,"positive":157,"deaths":2},
+                {"seconds_since_epoch":1583909675000,"tested":847,"positive":157,"deaths":2},
+                {"seconds_since_epoch":1583981097000,"tested":847,"positive":177,"deaths":3},
+                {"seconds_since_epoch":1584033110000,"tested":867,"positive":177,"deaths":3},
+                {"seconds_since_epoch":1584055830000,"tested":888,"positive":198,"deaths":4},
+                {"seconds_since_epoch":1584137412000,"tested":937,"positive":247,"deaths":5},
+                {"seconds_since_epoch":1584306715000,"tested":937,"positive":335,"deaths":6},
+                {"seconds_since_epoch":1584333619000,"tested":1025,"positive":335,"deaths":6},
+                {"seconds_since_epoch":1584422731000,"tested":8316,"positive":392,"deaths":6},
+                {"seconds_since_epoch":1584475630000,"tested":8316,"positive":472,"deaths":11},
+                {"seconds_since_epoch":1584563350000,"tested":8316,"positive":598,"deaths":13},
+                {"seconds_since_epoch":1584641939000,"tested":8316,"positive":675,"deaths":16},
+                {"seconds_since_epoch":1584729642000,"tested":8316,"positive":1006,"deaths":19},
+                {"seconds_since_epoch":1584820938000,"tested":8316,"positive":1224,"deaths":23},
+                {"seconds_since_epoch":1584910162000,"tested":8316,"positive":1468,"deaths":27},
+                {"seconds_since_epoch":1584925395000,"tested":26200,"positive":1468,"deaths":27},
+                {"seconds_since_epoch":1584988372000,"tested":26400,"positive":1733,"deaths":27},
+                {"seconds_since_epoch":1585081911000,"tested":26400,"positive":1733,"deaths":27},
+                {"seconds_since_epoch":1585092445000,"tested":27650,"positive":2102,"deaths":40},
+                {"seconds_since_epoch":1585175447000,"tested":27650,"positive":2535,"deaths":40},
+                {"seconds_since_epoch":1585184300000,"tested":27650,"positive":2535,"deaths":53},
+                {"seconds_since_epoch":1585243622000,"tested":66800,"positive":2535,"deaths":53},
+                {"seconds_since_epoch":1585259866000,"tested":77800,"positive":3006,"deaths":65},
+                {"seconds_since_epoch":1585349306000,"tested":77800,"positive":3801,"deaths":78},
+                {"seconds_since_epoch":1585429267000,"tested":77800,"positive":4643,"deaths":101},
+                {"seconds_since_epoch":1585440114000,"tested":89600,"positive":4643,"deaths":101},
+                {"seconds_since_epoch":1585605816000,"tested":89600,"positive":5763,"deaths":135},
+                {"seconds_since_epoch":1585689808000,"tested":89600,"positive":6932,"deaths":150},
+                {"seconds_since_epoch":1585786329000,"tested":89600,"positive":8155,"deaths":171},
+                {"seconds_since_epoch":1585791054000,"tested":90100,"positive":8155,"deaths":171},
+                {"seconds_since_epoch":1585873862000,"tested":92500,"positive":9191,"deaths":203},
+                {"seconds_since_epoch":1585950542000,"tested":94800,"positive":10701,"deaths":237},
+                {"seconds_since_epoch":1586035802000,"tested":126700,"positive":12026,"deaths":276},
+                {"seconds_since_epoch":1586119922000,"tested":126700,"positive":13438,"deaths":319},
+                {"seconds_since_epoch":1586121902000,"tested":131500,"positive":13438,"deaths":319},
+                {"seconds_since_epoch":1586216343000,"tested":131500,"positive":14336,"deaths":343},
+                {"seconds_since_epoch":1586219162000,"tested":143800,"positive":14336,"deaths":343},
+                {"seconds_since_epoch":1586305622000,"tested":157800,"positive":15865,"deaths":374},
+                {"seconds_since_epoch":1586396702000,"tested":168800,"positive":16957,"deaths":442},
+                {"seconds_since_epoch":1586477392000,"tested":177600,"positive":18309,"deaths":492},
+                {"seconds_since_epoch":1586561102000,"tested":185300,"positive":19472,"deaths":541},
+                {"seconds_since_epoch":1586647152000,"tested":196200,"positive":20615,"deaths":609}],
+        keys: {
+            x: "seconds_since_epoch",
+            value: ['tested', 'positive', 'deaths'],
+        },
         },
         axis: {
           y: {
@@ -29,14 +71,21 @@
             min: 0
           },
           x: {
-            padding: {
-              left: 0
-            },
-            min: 0,
-            show: false
-          }
+            type: 'timeseries',
+            "tick":{
+      	        "culling":{"max":100},
+                "count":20,
+                "fit":true,
+                "rotate":45,
+
+                "format":"%Y-%m-%d %H:%M"
+    
+                
+                }
+        }
         }
       });
+
     </script>
   </body>
 </html>
